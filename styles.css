@@ -1,0 +1,492 @@
+/* Modern Color Scheme */
+:root {
+    --primary-color: #3a86ff;
+    --secondary-color: #8338ec;
+    --dark-color: #212529;
+    --light-color: #f8f9fa;
+    --specimen-color: #9c27b0;
+    --active-lens: #3a86ff;
+    --light-intensity: 60%;
+    --control-active: #2a6fdb;
+}
+
+/* Interactive Background */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: var(--light-color);
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.interactive-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(58, 134, 255, 0.15) 0%, transparent 25%),
+        radial-gradient(circle at 80% 70%, rgba(131, 56, 236, 0.15) 0%, transparent 25%);
+    z-index: -1;
+    animation: float 15s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(20px, 20px); }
+}
+
+/* Project Header */
+.project-header {
+    text-align: center;
+    padding: 2rem 0 1rem;
+    position: relative;
+    z-index: 10;
+}
+
+.project-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 1px;
+}
+
+.project-subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.8);
+    margin-top: 0.5rem;
+}
+
+/* Creator Credit */
+.creator-credit {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+}
+
+.creator-credit:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+}
+
+/* Enhanced Microscope Container */
+.microscope-container {
+    position: relative;
+    padding: 2rem;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.1);
+    margin: 1rem auto;
+    max-width: 500px;
+}
+
+/* Enhanced Controls Panel */
+.controls-panel {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 2rem;
+    max-width: 500px;
+    margin: 0 auto 2rem;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.magnification-controls, .function-controls {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.control-btn {
+    padding: 10px 15px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+}
+
+.control-btn:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+}
+
+.control-btn.active {
+    background: var(--primary-color);
+    box-shadow: 0 4px 15px rgba(58, 134, 255, 0.4);
+}
+
+.light-control {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.light-control label {
+    text-align: center;
+    color: rgba(255,255,255,0.8);
+    font-size: 0.9rem;
+}
+
+#light-intensity {
+    width: 100%;
+    cursor: pointer;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    height: 6px;
+}
+
+/* Microscope Styles */
+.microscope {
+    position: relative;
+    width: 400px;
+    height: 500px;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));
+    margin: 0 auto;
+}
+
+.base {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 250px;
+    height: 30px;
+    background-color: var(--microscope-base);
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.arm {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 300px;
+    background-color: var(--microscope-arm);
+    border-radius: 5px;
+}
+
+.stage {
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 120px;
+    background-color: #ddd;
+    border-radius: 5px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.slide-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 110px;
+    height: 80px;
+    background-color: #fff;
+    border: 1px solid #999;
+    transition: all 0.5s ease;
+}
+
+.slide {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    overflow: hidden;
+}
+
+.specimen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 60px;
+    background: 
+        radial-gradient(circle at center, var(--specimen-color) 2px, transparent 2px),
+        repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(0,0,0,0.1) 5px, rgba(0,0,0,0.1) 6px);
+    background-size: 20px 20px, 10px 10px;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s ease;
+}
+
+.stage-clips {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.clip {
+    width: 15px;
+    height: 10px;
+    background-color: #777;
+    border-radius: 3px 3px 0 0;
+}
+
+.body-tube {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 120px;
+    background-color: var(--microscope-metal);
+    border-radius: 5px;
+}
+
+.revolving-nosepiece {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 30px;
+    background-color: #666;
+    border-radius: 30px 30px 0 0;
+    animation: subtleMove 3s ease-in-out infinite alternate;
+}
+
+@keyframes subtleMove {
+    0%, 100% { transform: translateX(-50%) rotate(0.5deg); }
+    50% { transform: translateX(-50%) rotate(-0.5deg); }
+}
+
+.objective {
+    position: absolute;
+    width: 10px;
+    height: 30px;
+    background-color: #333;
+    border-radius: 5px;
+    transform-origin: bottom center;
+    transition: all 0.3s ease;
+}
+
+.objective.low-power {
+    left: 10px;
+    bottom: 0;
+    transform: rotate(-30deg);
+}
+
+.objective.medium-power {
+    left: 25px;
+    bottom: 0;
+    transform: rotate(0deg);
+}
+
+.objective.high-power {
+    left: 40px;
+    bottom: 0;
+    transform: rotate(30deg);
+}
+
+.focus-knobs {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    animation: subtleKnobRotate 5s linear infinite;
+}
+
+@keyframes subtleKnobRotate {
+    0% { transform: translateX(-50%) rotate(0deg); }
+    100% { transform: translateX(-50%) rotate(360deg); }
+}
+
+.coarse-focus, .fine-focus {
+    width: 35px;
+    height: 30px;
+    background-color: #666;
+    border-radius: 15px;
+}
+
+.fine-focus {
+    width: 25px;
+}
+
+.eyepiece {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 30px;
+    background-color: #555;
+    border-radius: 0 0 25px 25px;
+}
+
+.lens {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 20px;
+    background-color: #222;
+    border-radius: 5px;
+}
+
+.light-source {
+    position: absolute;
+    bottom: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 20px;
+    background-color: #444;
+    border-radius: 5px;
+}
+
+.light-source::after {
+    content: '';
+    position: absolute;
+    top: -120px;
+    left: 50%;
+    width: 80px;
+    height: 120px;
+    background: 
+        radial-gradient(ellipse at center, rgba(255, 255, 200, 0.8) 0%, transparent 70%),
+        linear-gradient(to top, transparent, rgba(255, 255, 200, 0.8) 20%, transparent);
+    transform: translateX(-50%) perspective(200px) rotateX(30deg);
+    clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+    opacity: calc(var(--light-intensity) * 0.01 * 0.8);
+    mix-blend-mode: screen;
+}
+
+/* Microscope States */
+.low-power .objective.low-power,
+.medium-power .objective.medium-power,
+.high-power .objective.high-power {
+    height: 40px;
+    background-color: var(--active-lens);
+}
+
+.low-power .specimen {
+    transform: translate(-50%, -50%) scale(0.5);
+    filter: brightness(1) contrast(1);
+}
+
+.medium-power .specimen {
+    transform: translate(-50%, -50%) scale(1);
+    filter: brightness(1.1) contrast(1.1);
+}
+
+.high-power .specimen {
+    transform: translate(-50%, -50%) scale(2);
+    filter: brightness(1.3) contrast(1.3);
+    background-image: 
+        radial-gradient(circle at center, var(--specimen-color) 1px, transparent 1px),
+        repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.2) 3px, rgba(0,0,0,0.2) 4px),
+        repeating-linear-gradient(90deg, transparent, transparent 3px, rgba(0,0,0,0.2) 3px, rgba(0,0,0,0.2) 4px);
+    background-size: 10px 10px, 5px 5px;
+}
+
+.focus-active .slide-container {
+    animation: focusAdjust 0.5s ease-in-out infinite, focusBlur 1s alternate infinite;
+}
+
+@keyframes focusAdjust {
+    0%, 100% { transform: translate(20px, 20px); }
+    50% { transform: translate(20px, 22px); }
+}
+
+@keyframes focusBlur {
+    0% { filter: blur(0.5px); }
+    100% { filter: blur(1.5px); }
+}
+
+.move-active .slide-container {
+    animation: slideMove 2s ease-in-out infinite;
+}
+
+@keyframes slideMove {
+    0%, 100% { transform: translate(20px, 20px); }
+    25% { transform: translate(25px, 20px); }
+    50% { transform: translate(20px, 25px); }
+    75% { transform: translate(15px, 20px); }
+}
+
+/* Particle styles */
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: float-particle linear infinite;
+}
+
+@keyframes float-particle {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(20px, 20px); }
+    50% { transform: translate(10px, 30px); }
+    75% { transform: translate(-10px, 20px); }
+    100% { transform: translate(0, 0); }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .microscope {
+        transform: scale(0.8);
+    }
+    
+    .controls {
+        flex-direction: column;
+    }
+    
+    .project-title {
+        font-size: 2rem;
+    }
+    
+    .project-subtitle {
+        font-size: 1rem;
+    }
+    
+    .microscope-container, .controls-panel {
+        padding: 1rem;
+    }
+}

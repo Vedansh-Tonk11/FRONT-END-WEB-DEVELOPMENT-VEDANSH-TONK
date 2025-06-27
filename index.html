@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioScope Explorer - Interactive Microscope Simulation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="interactive-bg"></div>
+    
+    <header class="project-header">
+        <h1 class="project-title">BioScope Explorer</h1>
+        <p class="project-subtitle">Interactive Microscope Simulation for Education</p>
+    </header>
+
+    <main class="container">
+        <section class="project-description">
+            <div class="description-content">
+                <h2>About This Project</h2>
+                <p>The BioScope Explorer is an interactive web-based microscope simulation designed to help students and enthusiasts learn about microscopy in an engaging way. This virtual lab experience replicates the functionality of a real compound microscope with accurate magnification levels and focus controls.</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-search-plus"></i>
+                        <h3>3 Magnification Levels</h3>
+                        <p>Experience 40x, 100x, and 400x magnification with detailed specimen rendering</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-sliders-h"></i>
+                        <h3>Precise Controls</h3>
+                        <p>Adjust focus, move slides, and control light intensity just like a real microscope</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-atom"></i>
+                        <h3>Realistic Specimens</h3>
+                        <p>View detailed cellular structures that change with magnification</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>Educational Value</h3>
+                        <p>Perfect for biology students and curious minds to learn microscopy basics</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="simulation-section">
+            <h2 class="section-title">Interactive Simulation</h2>
+            <div class="simulation-container">
+                <div class="controls-panel">
+                    <div class="controls">
+                        <div class="control-group">
+                            <h3>Magnification</h3>
+                            <div class="magnification-controls">
+                                <button class="control-btn active" data-view="low">
+                                    <i class="fas fa-search"></i> Low (40x)
+                                </button>
+                                <button class="control-btn" data-view="medium">
+                                    <i class="fas fa-search"></i> Medium (100x)
+                                </button>
+                                <button class="control-btn" data-view="high">
+                                    <i class="fas fa-search-plus"></i> High (400x)
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="control-group">
+                            <h3>Functions</h3>
+                            <div class="function-controls">
+                                <button class="control-btn" data-function="focus">
+                                    <i class="fas fa-adjust"></i> Adjust Focus
+                                </button>
+                                <button class="control-btn" data-function="move">
+                                    <i class="fas fa-arrows-alt"></i> Move Slide
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="control-group">
+                            <h3>Illumination</h3>
+                            <div class="light-control">
+                                <label for="light-intensity">Light Intensity</label>
+                                <input type="range" id="light-intensity" min="20" max="100" value="60">
+                                <div class="light-value" id="light-value">60%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="microscope-container">
+                    <div class="microscope low-power">
+                        <div class="base"></div>
+                        <div class="arm"></div>
+                        <div class="stage">
+                            <div class="slide-container">
+                                <div class="slide">
+                                    <div class="specimen"></div>
+                                </div>
+                            </div>
+                            <div class="stage-clips">
+                                <div class="clip left"></div>
+                                <div class="clip right"></div>
+                            </div>
+                        </div>
+                        <div class="body-tube">
+                            <div class="revolving-nosepiece">
+                                <div class="objective low-power active"></div>
+                                <div class="objective medium-power"></div>
+                                <div class="objective high-power"></div>
+                            </div>
+                            <div class="eyepiece">
+                                <div class="lens"></div>
+                            </div>
+                        </div>
+                        <div class="focus-knobs">
+                            <div class="coarse-focus"></div>
+                            <div class="fine-focus"></div>
+                        </div>
+                        <div class="light-source"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="educational-content">
+            <h2 class="section-title">Microscope Basics</h2>
+            <div class="content-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="parts">Parts</button>
+                    <button class="tab-btn" data-tab="usage">Usage</button>
+                    <button class="tab-btn" data-tab="applications">Applications</button>
+                </div>
+                <div class="tab-content active" data-tab="parts">
+                    <h3>Microscope Parts and Functions</h3>
+                    <ul>
+                        <li><strong>Eyepiece:</strong> Where you look through to view the specimen (typically 10x magnification)</li>
+                        <li><strong>Objective Lenses:</strong> Provide primary magnification (4x, 10x, 40x typical)</li>
+                        <li><strong>Stage:</strong> Platform where the slide is placed</li>
+                        <li><strong>Stage Clips:</strong> Hold the slide in place</li>
+                        <li><strong>Focus Knobs:</strong> Coarse and fine adjustment for focusing</li>
+                        <li><strong>Light Source:</strong> Illuminates the specimen from below</li>
+                    </ul>
+                </div>
+                <div class="tab-content" data-tab="usage">
+                    <h3>Proper Microscope Usage</h3>
+                    <ol>
+                        <li>Always start with the lowest power objective (4x or 10x)</li>
+                        <li>Place the slide on the stage and secure with stage clips</li>
+                        <li>Use coarse focus to bring specimen into general focus</li>
+                        <li>Use fine focus for precise focusing</li>
+                        <li>Adjust light intensity for optimal viewing</li>
+                        <li>Switch to higher power objectives as needed</li>
+                        <li>Never use coarse focus with high power objectives</li>
+                    </ol>
+                </div>
+                <div class="tab-content" data-tab="applications">
+                    <h3>Microscopy Applications</h3>
+                    <div class="application-grid">
+                        <div class="app-card">
+                            <i class="fas fa-flask"></i>
+                            <h4>Biological Research</h4>
+                            <p>Study of cells, tissues, and microorganisms</p>
+                        </div>
+                        <div class="app-card">
+                            <i class="fas fa-medkit"></i>
+                            <h4>Medical Diagnostics</h4>
+                            <p>Blood analysis, pathology, and disease diagnosis</p>
+                        </div>
+                        <div class="app-card">
+                            <i class="fas fa-leaf"></i>
+                            <h4>Botany</h4>
+                            <p>Plant cell structure and identification</p>
+                        </div>
+                        <div class="app-card">
+                            <i class="fas fa-vial"></i>
+                            <h4>Forensics</h4>
+                            <p>Analysis of trace evidence and materials</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="specimen-gallery">
+            <h2 class="section-title">Virtual Specimens</h2>
+            <div class="gallery-controls">
+                <button class="gallery-btn active" data-specimen="plant-cell">Plant Cell</button>
+                <button class="gallery-btn" data-specimen="blood">Blood Cells</button>
+                <button class="gallery-btn" data-specimen="bacteria">Bacteria</button>
+                <button class="gallery-btn" data-specimen="protozoa">Protozoa</button>
+            </div>
+            <div class="gallery-description">
+                <p id="specimen-description">Plant cells are eukaryotic cells that differ in several key aspects from the cells of other eukaryotic organisms. They have a rigid cell wall, chloroplasts for photosynthesis, and a large central vacuole.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="creator-credit">
+                <h3>BioScope Explorer</h3>
+                <p>An interactive microscope simulation for education</p>
+                <p>Created by Vedansh Tonk</p>
+            </div>
+            <div class="footer-links">
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
